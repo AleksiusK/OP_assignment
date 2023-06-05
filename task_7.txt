@@ -1,0 +1,15 @@
+For hosting a web service in AWS, you would first need a domain for the webservice itself- these can be purchased, or in Finland requested from Traficom.
+For storing a simple service, we would use an AWS Web bucket such as the Amazon S3. Especially if we are building somehting more demanding,
+this could be a good option. After uploading the code we want to run and checking that the domain names are correct. We would then need to create the hosting zone
+to the web app, setting the availability to what we need. For applications not ment for public use we need to define a private hosting zone using AWS cloud front.
+After the hosting zone is set up, we need to define the SSL certificate to use HTTPS. We then move onwards to setting up how we route the traffic to our page using AWS Route 53- for this,
+the AWS cloud front would be useful. After this is set up, we should have a policy to use when routing to the server. After this we should be done with setting up our
+service in AWS.
+
+For security, we need to take in account for what who our service is aimed for. For this, we could use AWS IAM (identity and access management). This would
+enable us to define the acess rights for the web service, making it less likely that someone from outside our organization would be able to access. Also, requiring a
+VPN connection- for example AWS VPN- would require users to log in with accepted credentials before signing in to the servie.
+
+For scalability, we can use multiple virtual private clouds (AWS VPC's) to run our resources in AWS. A good option would be to for example divide
+a larger VPC into multiple smaller ones, reducing the resource draw on one single VPC. Also using a policy to distribute
+resource use between multiple geographical sources could increase the scalability. Serverless options would also be a good way to scale the service quickly.
